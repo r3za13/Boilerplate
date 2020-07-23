@@ -9,6 +9,7 @@ android {
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField 'String', 'BASE_URL', "http://test.com/"
     }
 
     buildTypes {
@@ -30,7 +31,9 @@ dependencies {
 
     //Network
     implementation myDependencies.retrofit
+    implementation myDependencies.moshiConverter
     implementation myDependencies.okhttp
+    implementation myDependencies.okhttpLogging
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -24,6 +24,8 @@ ext {
             hilt_android_compiler: "com.google.dagger:hilt-android-compiler:$hilt_version",
             coroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
             retrofit             : "com.squareup.retrofit2:retrofit:$retrofit_version",
-            okhttp               : "com.squareup.okhttp3:okhttp:$okhttp_version"
+            moshiConverter       : "com.squareup.retrofit2:converter-moshi:$retrofit_version",
+            okhttp               : "com.squareup.okhttp3:okhttp:$okhttp_version",
+            okhttpLogging        : "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
     ]
 }
