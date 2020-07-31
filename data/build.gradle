@@ -9,7 +9,7 @@ android {
     defaultConfig {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField 'String', 'BASE_URL', "http://test.com/"
+        buildConfigField 'String', 'BASE_URL', "\"https://reqres.in/\""
     }
 
     buildTypes {

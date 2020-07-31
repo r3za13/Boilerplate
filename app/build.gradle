@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion compile_sdk_version
@@ -28,6 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -38,10 +41,17 @@ dependencies {
     implementation myDependencies.ktx
     implementation myDependencies.appcompat
     implementation myDependencies.constraint_layout
+    implementation myDependencies.lifecycle_viewmodel_androix
+    implementation myDependencies.androidx_fragment_ktx
 
     //DI
     implementation myDependencies.hilt_android
-    kapt myDependencies.hilt_android_compiler
+    kapt myDependencies.hilt_androidx_compiler
+    implementation myDependencies.hilt_androidx_lifecycle
+
+    //ktx
+    implementation myDependencies.ktx
+
     //Coroutines
     implementation myDependencies.coroutines
 
