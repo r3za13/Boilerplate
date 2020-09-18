@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion compile_sdk_version
@@ -30,10 +31,12 @@ dependencies {
     kapt myDependencies.hilt_android_compiler
 
     //Network
-    implementation myDependencies.retrofit
+    api myDependencies.retrofit
     implementation myDependencies.moshiConverter
-    implementation myDependencies.okhttp
+    api myDependencies.okhttp
     implementation myDependencies.okhttpLogging
+    //Coroutines
+    implementation myDependencies.coroutines
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

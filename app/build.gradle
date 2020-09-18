@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion compile_sdk_version
@@ -47,6 +48,7 @@ dependencies {
     //DI
     implementation myDependencies.hilt_android
     kapt myDependencies.hilt_androidx_compiler
+    kapt myDependencies.hilt_android_compiler
     implementation myDependencies.hilt_androidx_lifecycle
 
     //ktx
@@ -54,7 +56,6 @@ dependencies {
 
     //Coroutines
     implementation myDependencies.coroutines
-
     //Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
