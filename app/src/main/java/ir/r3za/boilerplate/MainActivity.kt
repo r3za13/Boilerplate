@@ -1,9 +1,9 @@
 package ir.r3za.boilerplate
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,5 +19,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.testStringLiveData.observe(this, Observer { it ->
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
+
+        mainViewModel.onPageOpened()
     }
 }
