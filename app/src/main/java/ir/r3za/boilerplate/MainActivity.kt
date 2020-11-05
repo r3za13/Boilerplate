@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -18,8 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.testStringLiveData.observe(this, Observer { it ->
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            tvTest.text = it
         })
 
-        mainViewModel.onPageOpened()
+        tvTest.setOnClickListener {
+            mainViewModel.onPageOpened()
+        }
+
     }
 }

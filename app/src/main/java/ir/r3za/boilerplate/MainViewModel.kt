@@ -1,8 +1,10 @@
 package ir.r3za.boilerplate
 
+import android.util.Log
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import ir.r3za.ApiResponse
 import ir.r3za.Repository
 import kotlinx.coroutines.launch
 
@@ -21,7 +23,14 @@ class MainViewModel @ViewModelInject constructor(
 
     fun onPageOpened() {
         viewModelScope.launch {
-            repository.getUsers("1")
+            val result = repository.getUsers("1")
+            if (result is ApiResponse.Success) {
+                Log.d("taggg", result.data.toString())
+                _testStringLiveData.value = result.data!!.string()
+            } else if (result is ApiResponse.Error) {
+                Log.d("taggg", result.error.message!!)
+                _testStringLiveData.value = result.error.message
+            }
         }
     }
 }
